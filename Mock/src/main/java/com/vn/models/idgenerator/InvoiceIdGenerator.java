@@ -1,4 +1,4 @@
-package com.vn.models;
+package com.vn.models.idgenerator;
 
 import java.io.Serializable;
 import java.util.Properties;
@@ -14,7 +14,7 @@ import org.hibernate.type.Type;
 
 import com.vn.models.Account;
 
-public class IdGenerator extends SequenceStyleGenerator{
+public class InvoiceIdGenerator extends SequenceStyleGenerator{
 	
 	public static final String CODE_NUMBER_SEPARATOR_PARAMETER = "codeNumberSeparator";
     public static final String CODE_NUMBER_SEPARATOR_DEFAULT = "_";
@@ -36,6 +36,6 @@ public class IdGenerator extends SequenceStyleGenerator{
     @Override
     public Serializable generate(SharedSessionContractImplementor session,
             Object object) throws HibernateException {
-        return String.format(format, ((Account)object).getRole().getCode(), super.generate(session, object));
+        return String.format(format, "INV", super.generate(session, object));
     }  
 }

@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,6 +35,7 @@ public class Role implements Serializable{
 	@Column(name = "role_id")
 	private Integer roleId;
 	
+	@NotBlank(message = "Role name is mandatory")
 	@Column(name = "role_name", length = 255, nullable = false)
 	private String roleName;
 	
